@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from './assets/vite.svg'
+// import heroImg from './assets/hero.png'
 import './App.scss'
 
 import { Bs123 } from "react-icons/bs";
@@ -14,7 +14,24 @@ function App() {
   const name='chch'
   let post="맛집"
   const[message, setMessage] = useState('초기값이다')
+  const[isToggleOn, setisToggleOn] = useState(true)
 
+  function handleClick(){
+    setisToggleOn((isToggleOn) => !isToggleOn);
+  }
+  // const handleClick(){
+  //   setisToggleOn((isToggleOn) => !isToggleOn);
+  // }
+  const[username, setUsername] =useState("")
+  const onChangeUsername = (e)=>{setUsername(e.target.value)}
+  
+  const {mm, setMm} = useState()
+  const onChangeMm = (e)=>{setMm(e.target.value)}
+
+  const onClickBtn=() => {
+    console.log(username + mm)
+  }
+  
   return (
     <>
       
@@ -49,8 +66,17 @@ function App() {
       <MyComponent a='파파'></MyComponent>
 
       <h5>{message}</h5>
-      <button onClick={()=>setMessage('어서오십셔')}>입장dd</button>
-      <button>퇴장dd</button>
+      <button onClick={()=>setMessage('어서오십셔')}>입장</button>
+      <button>퇴장ㅇㅇ</button>
+
+      <button onClick={handleClick}>
+        {isToggleOn ? "켜짐" : "꺼짐"}
+      </button>
+
+      <input type="text" placeholder='사용자명' value={username} onChange={onChangeUsername}/>
+      <input type="text" placeholder='아무거나' value={mm} onChange={onChangeMm}/>
+
+      <button onClick={onClickBtn}>확인</button>
     </>
   )
 }
