@@ -49,8 +49,8 @@ function App() {
       <MyComponent a='파파'></MyComponent>
 
       <h5>{message}</h5>
-      <button onClick={()=>setMessage('어서오십셔')}>입장</button>
-      <button>퇴장</button>
+      <button onClick={()=>setMessage('어서오십셔')}>입장dd</button>
+      <button>퇴장dd</button>
     </>
   )
 }
